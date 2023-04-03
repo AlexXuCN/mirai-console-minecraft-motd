@@ -66,11 +66,9 @@ public class MotdCommand extends SimpleCommand {
                     minecraftMotd.type = "PocketMine";
                     break;
                 case 10:
-                    message = message.concat("\n存档名: " + minecraftMotd.sub_motd + "\n游戏模式: " + minecraftMotd.game_mode);
                     minecraftMotd.type = "Nukkit";
                     break;
                 case 12:
-                    message = message.concat("\n存档名: " + minecraftMotd.sub_motd + "\n游戏模式: " + minecraftMotd.game_mode + "\n监听端口: " + minecraftMotd.port_v4 + "/" + minecraftMotd.port_v6);
                     if (minecraftMotd.port_v6.equals("-1")) {
                         minecraftMotd.type = "Geyser";
                     } else {
@@ -78,10 +76,10 @@ public class MotdCommand extends SimpleCommand {
                     }
                     break;
                 case 13:
-                    message =  message.concat("\n存档名: " + minecraftMotd.sub_motd + "\n游戏模式: " + minecraftMotd.game_mode + "\n监听端口: " + minecraftMotd.port_v4 + "/" + minecraftMotd.port_v6);
                     minecraftMotd.type = "Bedrock Dedicated Server";
             }
-            sender.getGroup().sendMessage(message + "\n服务端: " + minecraftMotd.type);
+//            sender.getGroup().sendMessage(message + "\n服务端: " + minecraftMotd.type);
+            sender.getGroup().sendMessage(minecraftMotd.motd + "\n" + minecraftMotd.type + " " + minecraftMotd.version_name + " (" + minecraftMotd.protocol + ")\n在线 " + minecraftMotd.player_count + "/" + minecraftMotd.max_players + "\n");
         } else {
             sender.getGroup().sendMessage("不是Minecraft服务器");
         }
